@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Artist Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .card h2 {
+            font-size: 2em;
+            margin: 0.5em 0;
+        }
+        .card h3 {
+            font-size: 1.5em;
+            margin: 0.5em 0;
+        }
+        .card p {
+            margin: 0.5em 0;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="{{.Art.Image}}" width="300" height="300" alt="{{.Art.Name}}">
+            <h2>{{.Art.Name}}</h2>
+            <h3>Members:</h3>
+            {{range .Art.Members}}
+            <p>{{.}}</p>
+            {{end}}
+            <p>Creation Date: {{.Art.CreationDate}}</p>
+            <p>First Album: {{.Art.FirstAlbum}}</p>
+            <h3>Locations:</h3>
+            {{range .Location.Location}}
+            <p>{{.}}</p>
+            {{end}}
+            <h3>Dates:</h3>
+            {{range .Date.Dates}}
+            <p>{{.}}</p>
+            {{end}}
+            <h3>Dates and Locations:</h3>
+            {{range .DateLocation.DatesLocations}}
+            {{range .}}
+            <p>{{.}}</p> 
+            
+            {{end}}
+            {{end}}
+            <a href="/"><button>Go back</button></a>
+        </div>
+    </div>
+</body>
+</html>
