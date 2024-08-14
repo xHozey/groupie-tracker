@@ -2,54 +2,55 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
-	"io"
+	"log"
 	"net/http"
-	"os"
+	"text/template"
 )
 
-// Define a struct to match the expected JSON structure.
-type Response struct {
-	Artistsinfo Artists `json:"artists"`
-	Locations   string  `json:"locations"`
-	Dates       string  `json:"dates"`
-	Relation    string  `json:"relation"`
+type artist struct {
+	Id           int      `json:"id"`
+	Image        string   `json:"image"`
+	Name         string   `json:"name"`
+	Members      []string `json:"members"`
+	CreationDate int      `json:"creationDate"`
+	FirstAlbum   string   `json:"firstAlbum"`
 }
 
-type Artists struct {
-	id           int      `json.id`
-	image        string   `json.image`
-	name         string   `json.name`
-	members      []string `json.members`
-	creationDate int      `json.creationDate`
-	firstAlbum   string   `json.firstAlbum`
-}
+// type locations struct {
+// 	Id       int      `json:"id"`
+// 	Location []string `json:"locations"`
+// }
+
+// type dates struct {
+// 	Id    int      `json:"id"`
+// 	Dates []string `json:"dates"`
+// }
+
+//	type relation struct {
+//		Id             int        `json:"id"`
+//		DatesLocations [][]string `json:"datesLocations"`
+//	}
+
+var Art []artist
 
 func main() {
-	// Perform the HTTP GET request.
-	respondData, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
+	resp, err := http.Get("https://groupietrackers.herokuapp.com/api/artists")
 	if err != nil {
-		fmt.Println("Error fetching data:", err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-	defer respondData.Body.Close() // Ensure the body is closed.
-
-	// Read the response body.
-	data, err := io.ReadAll(respondData.Body)
-	if err != nil {
-		fmt.Println("Error reading data:", err)
-		os.Exit(1)
+	err1 := json.NewDecoder(resp.Body).Decode(&Art)
+	if err1 != nil {
+		log.Fatal(err)
 	}
 
-	// Unmarshal the JSON data into a Response struct.
-	var responseObject Artists
-	err = json.Unmarshal(data, &responseObject)
+	http.HandleFunc("/", Index)
+	log.Fatal(http.ListenAndServe(":8070", nil))
+}
+
+func Index(w http.ResponseWriter, r *http.Request) {
+	tpl, err := template.ParseFiles("index.html")
 	if err != nil {
-		fmt.Println("Error unmarshalling JSON:", err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-
-	// Print the parsed data.
-
-	fmt.Print(responseObject.name)
+	tpl.Execute(w, Art)
 }
