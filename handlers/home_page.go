@@ -10,6 +10,7 @@ import (
 func HomePage(w http.ResponseWriter, r *http.Request) {
 	var artists []Artist
 	pages := []string{
+		"templates/artist_details.html",
 		"templates/index.html",
 	}
 	tmpl, _ := template.ParseFiles(pages...)

@@ -7,9 +7,13 @@
     <title>Groupie Tracker</title>
 </head>
 <body>
+    {{template "details" .}} {{end}}
     {{range $index, $artist := .}}
+    <a href="/artists/{{$artist.Id}}">
         <img src="{{$artist.Image}}" alt="">
         <h1>{{$artist.Name}}</h1>
+
+        </a>
     {{end}}
 </body>
 </html>
