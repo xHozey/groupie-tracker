@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Artist Details</title>
-    <link rel="stylesheet" href="/templates/assests/style.css">
-</head>
-<body>
-    <div class="art-container">
-        <div class="art-imgname">
-            <img src="{{.Art.Image}}" width="300" height="300" alt="{{.Art.Name}}">
-            <h2 class="artist-name">{{.Art.Name}}</h2>
-        </div>
-        <div class="art-card">
-            <div class="members">
-                <h3>Members:</h3>
-                {{range .Art.Members}}
-                <p>{{.}}</p>
-                {{end}}
+    <head>
+        <title>Artist Details</title>
+        <link rel="stylesheet" href="/templates/assests/style.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="image-name">
+                <img src="{{.Art.Image}}" class="artimage">
+                <h2 class="artist-name">{{.Art.Name}}</h2>
             </div>
-                <h3>Creation Date:</h3>
-                <p>{{.Art.CreationDate}}</p>
-                <h3>First Album:</h3>
-                <p>{{.Art.FirstAlbum}}</p>
-            <h3>Locations:</h3>
-            {{range .Location.Location}}
-            <p>{{.}}</p>
-            {{end}}
-            <h3>Dates:</h3>
-            {{range .Date.Dates}}
-            <p>{{.}}</p>
-            {{end}}
-            <h3>Dates Locations:</h3>
-            {{range $locations, $date := .DateLocation.DatesLocations}}
-                <h4>{{$locations}}</h4>
-                    {{range $date}}
-                    <li>{{.}}</li>
+            <div class="context">
+                <div class="Members">
+                    <h3>Members:</h3>
+                    {{range .Art.Members}}
+                    <p>{{.}}</p>
                     {{end}}
-            {{end}}
-            <br>
-            <a href="/"><button>Go back</button></a>
+                </div>
+                <div class="CreationDate">
+                    <h3>Creation Date:</h3>
+                    <p>{{.Art.CreationDate}}</p>
+                </div>
+                <div class="FirstAlbum">
+                    <h3>First Album:</h3>
+                    <p>{{.Art.FirstAlbum}}</p>
+                </div>
+                <div class="locations">
+                    <h3>Locations:</h3>
+                    {{range .Location.Location}}
+                    <p>{{.}}</p>
+                    {{end}}
+                </div>
+                <div class="Dates">
+                    <h3>Dates:</h3>
+                    {{range .Date.Dates}}
+                    <p>{{.}}</p>
+                    {{end}}
+                </div>
+                <div class="DateLocation">
+                    <h3>Dates Locations:</h3>
+                    {{range $locations, $date := .DateLocation.DatesLocations}}
+                    <h4>{{$locations}}</h4>
+                    {{range $date}}
+                    <p>{{.}}</p>
+                    {{end}}
+                    {{end}}
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+        <a href="/"><button class="btn">Go back</button></a>
+    </body>
 </html>

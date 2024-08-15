@@ -9,6 +9,7 @@ import (
 func Index(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
 	}
 	if r.URL.Path != "/" {
 		http.Error(w, "404 Not Found", http.StatusNotFound)
@@ -28,6 +29,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func ArtistInfo(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
+		return
 	}
 	id := r.FormValue("Id")
 	data := fetchArtist(id)
