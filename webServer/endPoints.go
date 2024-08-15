@@ -10,6 +10,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
 	}
+	if r.URL.Path != "/" {
+		http.Error(w, "404 Not Found", http.StatusNotFound)
+		return
+	}
 	tpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		log.Fatal(err)

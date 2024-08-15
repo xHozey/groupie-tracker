@@ -2,41 +2,7 @@
 <html>
 <head>
     <title>Artists</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            padding: 16px;
-        }
-        .card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 16px;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-        }
-        .card h2 {
-            font-size: 1.5em;
-            margin: 0.5em 0;
-        }
-        .card p {
-            margin: 0.5em 0;
-            font-size: 0.9em;
-        }
-    </style>
+    <link rel="stylesheet" href="/templates/assests/style.css">
 </head>
 <body>
     
@@ -44,11 +10,11 @@
         {{range .}}
             <div class="card">
                 <img src="{{.Image}}" alt="{{.Name}}">
-                <h2>{{.Name}}</h2>
+                <h2 class="card-name">{{.Name}}</h2>
                 <p>Creation Date: {{.CreationDate}}</p>
                 <p>First Album: {{.FirstAlbum}}</p>
                 <form action="/artist" method="post">
-                <button value="{{.Id}}" name="Id">Check</button>
+                <button value="{{.Id}}" name="Id">Read more</button>
             </form>
         </div>
         {{end}}
