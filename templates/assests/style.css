@@ -3,15 +3,15 @@
     padding: 0;
     /* font-family: cursive; */
     box-sizing: border-box;
-   
+
 }
 
 body {
     background-image: url(img/background.jpg);
     font-family: "Radio Canada Big", sans-serif;
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
 }
 
@@ -60,30 +60,30 @@ button:hover {
 
 img {
     border-radius: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
     margin-top: 18px;
     margin-bottom: 10px;
     width: 212px;
 }
 
-.content{
+.content {
     text-align: center;
     display: flex;
     align-items: center;
     gap: 40px;
     margin: 40px;
     background-color: lightgrey;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
     padding: 20px;
 }
 
-.context{
+.context {
     display: flex;
-    flex-wrap: wrap; 
-    margin-left: 120px;
+    flex-wrap: wrap;
+    margin-left: 50px;
     font-size: 16px;
-    padding: 18px;
-    gap: 20px;
+    padding: 40px;
+    gap: 80px;
 
 }
 
@@ -98,5 +98,76 @@ img {
     width: 100px;
     height: 50px;
     font-size: 16px;
+}
+
+
+.Members {
+    font-size: 25px;
+}
+
+.CreationDate {
+    font-size: 25px;
+}
+
+.FirstAlbum {
+    font-size: 25px;
+}
+
+.locations {
+    font-size: 25px;
+}
+
+.Dates {
+    font-size: 25px;
+}
+
+.DateLocation {
+    font-size: 25px;
+}
+
+.btn {
+    font-size: 25px;
+}
+
+.member {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.creation-date {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.first-album {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.location {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.date {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.date-location-item {
+    text-align: left;
+    font-size: 18px;
+    font-family: serif;
+}
+
+.date-location-title {
+    text-align: left;
+    font-size: 18px;
+    
 }
 

@@ -3,6 +3,11 @@
     <head>
         <title>Artist Details</title>
         <link rel="stylesheet" href="/templates/assests/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap"
+            rel="stylesheet">
     </head>
     <body>
         <div class="content">
@@ -11,38 +16,38 @@
                 <h2 class="artist-name">{{.Art.Name}}</h2>
             </div>
             <div class="context">
-                <div class="Members">
-                    <h3>Members:</h3>
+                <div>
+                    <h3 class="Members">Members:</h3>
                     {{range .Art.Members}}
-                    <p>{{.}}</p>
+                    <p class="member">{{.}}</p>
                     {{end}}
                 </div>
-                <div class="CreationDate">
-                    <h3>Creation Date:</h3>
-                    <p>{{.Art.CreationDate}}</p>
+                <div>
+                    <h3 class="CreationDate">Creation Date:</h3>
+                    <p class="creation-date">{{.Art.CreationDate}}</p>
                 </div>
-                <div class="FirstAlbum">
-                    <h3>First Album:</h3>
-                    <p>{{.Art.FirstAlbum}}</p>
+                <div>
+                    <h3 class="FirstAlbum">First Album:</h3>
+                    <p class="first-album">{{.Art.FirstAlbum}}</p>
                 </div>
-                <div class="locations">
-                    <h3>Locations:</h3>
+                <div>
+                    <h3 class="locations">Locations:</h3>
                     {{range .Location.Location}}
-                    <p>{{.}}</p>
+                    <p class="location">{{.}}</p>
                     {{end}}
                 </div>
-                <div class="Dates">
-                    <h3>Dates:</h3>
+                <div>
+                    <h3 class="Dates">Dates:</h3>
                     {{range .Date.Dates}}
-                    <p>{{.}}</p>
+                    <p class="date">{{.}}</p>
                     {{end}}
                 </div>
-                <div class="DateLocation">
-                    <h3>Dates Locations:</h3>
+                <div>
+                    <h3 class="DateLocation">Dates Locations:</h3>
                     {{range $locations, $date := .DateLocation.DatesLocations}}
-                    <h4>{{$locations}}</h4>
+                    <h4 class="date-location-title">{{$locations}}</h4>
                     {{range $date}}
-                    <p>{{.}}</p>
+                    <p class="date-location-item">{{.}}</p>
                     {{end}}
                     {{end}}
                 </div>
