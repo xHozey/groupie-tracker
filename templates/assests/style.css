@@ -1,9 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* font-family: cursive; */
     box-sizing: border-box;
-
 }
 
 body {
@@ -28,7 +26,7 @@ body {
 
 .card {
     width: 308px;
-    height: 370x;
+    height: 397px;
     text-align: center;
     background: lightgrey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.514);
@@ -39,11 +37,10 @@ body {
     margin-bottom: 15px;
 }
 
-
 button {
-    font-family: cursive;
+    font-family: "Radio Canada Big", cursive, sans-serif;
     font-size: 17px;
-    width: 85px;
+    width: 100px;
     height: 40px;
     margin-top: 10px;
     margin-bottom: 5px;
@@ -51,12 +48,20 @@ button {
     padding: 2px 8px;
     border-radius: 20px;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin-left: 45px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
 button:hover {
     background-color: lightgrey;
 }
-
 
 img {
     border-radius: 50%;
@@ -84,7 +89,6 @@ img {
     font-size: 16px;
     padding: 40px;
     gap: 80px;
-
 }
 
 .artimage {
@@ -93,81 +97,14 @@ img {
     height: 350px;
 }
 
-.btn {
-    margin-left: 45px;
-    width: 100px;
-    height: 50px;
-    font-size: 16px;
-}
 
 
-.Members {
+.Members, .CreationDate, .FirstAlbum, .locations, .Dates, .DateLocation {
     font-size: 25px;
 }
 
-.CreationDate {
-    font-size: 25px;
-}
-
-.FirstAlbum {
-    font-size: 25px;
-}
-
-.locations {
-    font-size: 25px;
-}
-
-.Dates {
-    font-size: 25px;
-}
-
-.DateLocation {
-    font-size: 25px;
-}
-
-.btn {
-    font-size: 25px;
-}
-
-.member {
+.member, .creation-date, .first-album, .location, .date, .date-location-item, .date-location-title {
     text-align: left;
     font-size: 18px;
     font-family: serif;
 }
-
-.creation-date {
-    text-align: left;
-    font-size: 18px;
-    font-family: serif;
-}
-
-.first-album {
-    text-align: left;
-    font-size: 18px;
-    font-family: serif;
-}
-
-.location {
-    text-align: left;
-    font-size: 18px;
-    font-family: serif;
-}
-
-.date {
-    text-align: left;
-    font-size: 18px;
-    font-family: serif;
-}
-
-.date-location-item {
-    text-align: left;
-    font-size: 18px;
-    font-family: serif;
-}
-
-.date-location-title {
-    text-align: left;
-    font-size: 18px;
-    
-}
-
